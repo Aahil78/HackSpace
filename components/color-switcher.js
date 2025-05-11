@@ -1,7 +1,16 @@
 import { IconButton, useColorMode } from 'theme-ui'
+import { useEffect, useState } from 'react'
 
 const ColorSwitcher = (props) => {
+  const [mounted, setMounted] = useState(false)
   const [mode, setMode] = useColorMode()
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) return null
+
   return (
     <IconButton
       onClick={() => setMode(mode === 'dark' ? 'light' : 'dark')}

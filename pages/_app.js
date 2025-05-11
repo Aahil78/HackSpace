@@ -1,10 +1,9 @@
 import * as React from 'react'
 import NextApp from 'next/app'
-
-// import '@hackclub/theme/fonts/reg-bold.css'
 import theme from '@hackclub/theme'
 import { ThemeProvider } from 'theme-ui'
 import ColorSwitcher from '../components/color-switcher'
+import Navbar from '../components/navbar'
 
 export default class App extends NextApp {
   render() {
@@ -12,6 +11,7 @@ export default class App extends NextApp {
     return (
       <ThemeProvider theme={theme}>
         <ColorSwitcher />
+        <Navbar />
         <Component {...pageProps} />
       </ThemeProvider>
     )

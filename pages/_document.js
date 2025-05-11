@@ -10,7 +10,9 @@ export default class extends Document {
   render() {
     return (
       <Html lang="en">
-        <Head />
+        <Head>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
         <body>
           <InitializeColorMode />
           <Main />
