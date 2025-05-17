@@ -1,19 +1,51 @@
 /** @jsxImportSource theme-ui */
-import { Flex, Link } from 'theme-ui'
-import NextLink from 'next/link'
+import Link from 'next/link'
+import { Flex, Box, Button, NavLink } from 'theme-ui'
 
-const Navbar = () => (
-  <Flex sx={{ justifyContent: 'space-between', alignItems: 'center', p: 3, bg: 'background' }}>
-    <NextLink href="/">
-      <Link sx={{ fontSize: 3, fontWeight: 'bold' }}>HackSpace</Link>
-    </NextLink>
-    <Flex sx={{ gap: 3 }}>
-      <NextLink href="/about">
-        <Link sx={{ fontSize: 2 }}>About</Link>
-      </NextLink>
-      {/* Add more links as needed */}
+export default function Navbar() {
+  return (
+    <Flex
+      as="nav"
+      sx={{
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        px: [3, 4],
+        py: 3,
+        bg: 'sunken',
+        borderBottom: '1px solid',
+        borderColor: 'muted'
+      }}
+    >
+      <Link href="/" passHref>
+        <NavLink sx={{ fontWeight: 'bold', fontSize: 3, color: 'primary' }}>
+          HackSpace
+        </NavLink>
+      </Link>
+      <Flex as="ul" sx={{ listStyle: 'none', m: 0, p: 0 }}>
+        <Box as="li" sx={{ mx: 2 }}>
+          <Link href="/posts" passHref>
+            <NavLink>Posts</NavLink>
+          </Link>
+        </Box>
+        <Box as="li" sx={{ mx: 2 }}>
+          <Link href="/projects" passHref>
+            <NavLink>Projects</NavLink>
+          </Link>
+        </Box>
+        <Box as="li" sx={{ mx: 2 }}>
+          <Link href="/about" passHref>
+            <NavLink>About</NavLink>
+          </Link>
+        </Box>
+      </Flex>
+      <Box>
+        <Link href="/signup" passHref>
+          <Button variant="primary" sx={{ mr: 2 }}>Sign Up</Button>
+        </Link>
+        <Link href="/login" passHref>
+          <Button variant="outline">Log In</Button>
+        </Link>
+      </Box>
     </Flex>
-  </Flex>
-)
-
-export default Navbar
+  )
+}
